@@ -1,7 +1,4 @@
 class Ticket < ActiveRecord::Base
-  validates :source, presence: true
-  validates :destination, presence: true
-
   belongs_to :user
   belongs_to :train
   belongs_to :source, class_name: 'RailwayStation', foreign_key: :source_id
