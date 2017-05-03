@@ -3,8 +3,16 @@
 <p>
   <strong>Номер:</strong>
   <%= @wagon.number %>
+  <div></div>
   <strong>Тип:</strong>
   <%= @wagon.wagon_kind %>
+  <div></div>
+  <strong>Верхних мест:</strong>
+  <%= @wagon.upper_places %>
+  <div></div>
+  <strong>Нижних мест:</strong>
+  <%= @wagon.lower_places %>
+  <div></div>
 </p>
 
 <%= link_to 'Редактировать', edit_wagon_path(@wagon) %> |
