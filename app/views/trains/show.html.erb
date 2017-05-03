@@ -7,7 +7,7 @@
 
 <p>
   <strong>Маршрут:</strong>
-  <% if @train.route.nil? %>
+  <% if @train.route %>
       Маршрут не назначен
   <% else %>
       <%= @train.route.name %>
