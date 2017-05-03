@@ -3,15 +3,25 @@
 <p>
   <strong>Номер:</strong>
   <%= @train.number %>
-</p>
-
-<p>
+  <div></div>
   <strong>Маршрут:</strong>
   <% if @train.route %>
-      Маршрут не назначен
+    <%= @train.route.name %>
   <% else %>
-      <%= @train.route.name %>
+    Маршрут не назначен
   <% end %>
+  <div></div>
+  <strong>Плацкартных вагонов:</strong>
+  <% plazkart = @train.wagons.map {|w| w if w.wagon_kind == 'Плацкарт'} %>
+  <% plazkart.delete(nil)%>
+  <%= plazkart.size %>
+  <div></div>
+  <strong>Купейных вагонов:</strong>
+  <% kupe = @train.wagons.map {|w| w if w.wagon_kind == 'Купе'} %>
+  <% kupe.delete(nil)%>
+  <%= kupe.size %>
+
+
 </p>
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
