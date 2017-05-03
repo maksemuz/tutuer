@@ -18,7 +18,7 @@ class WagonsController < ApplicationController
   def create
     @wagon = Wagon.new(wagon_params)
     if @wagon.save
-      redirect_to @wagon, notice: 'Пользователь создан.'
+      redirect_to @wagon, notice: 'Вагон создан.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class WagonsController < ApplicationController
 
   def update
     if @wagon.update(wagon_params)
-      redirect_to @wagon, notice: 'Пользователь изменен.'
+      redirect_to @wagon, notice: 'Вагон изменен.'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class WagonsController < ApplicationController
 
   def destroy
     @wagon.destroy
-    redirect_to wagons_url, notice: 'Пользователь удален.'
+    redirect_to wagons_url, notice: 'Вагон удален.'
   end
 
   private
@@ -43,7 +43,7 @@ class WagonsController < ApplicationController
   end
 
   def wagon_params
-    params.require(:wagon).permit(:name)
+    params.require(:wagon).permit(:number, :wagon_kind)
   end
 
 end

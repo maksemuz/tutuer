@@ -2,8 +2,13 @@
     <%= render 'common/errors', resource: @wagon %>
 
     <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+    </div>
+
+    <div class="field">
+      <%= f.label :wagon_kind %>
+      <%= f.select :wagon_kind, ['Купе','Плацкарт'] %>
     </div>
 
     <div class="actions">

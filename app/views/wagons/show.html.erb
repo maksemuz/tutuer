@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Имя:</strong>
-  <%= @wagon.name %>
+  <strong>Номер:</strong>
+  <%= @wagon.number %>
+  <strong>Тип:</strong>
+  <%= @wagon.wagon_kind %>
 </p>
 
 <%= link_to 'Редактировать', edit_wagon_path(@wagon) %> |
