@@ -6,7 +6,7 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
-  def wagons_logic(kind)
+  def wagons_info(kind)
     w = self.wagons.select {|w| w.wagon_kind == kind}
     {
       size: w.size,
