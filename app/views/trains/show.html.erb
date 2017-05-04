@@ -12,22 +12,20 @@
   <% end %>
   <div></div>
   <strong>Плацкартных вагонов:</strong>
-  <% platzkart = @train.wagons.map { |w| w if w.wagon_kind == 'Плацкарт' }.compact %>
-  <%= platzkart.size %>
+  <%= @train.platzkart[:size] %>
   <div></div>
   <strong>Купейных вагонов:</strong>
-  <% kupe = @train.wagons.map { |w| w if w.wagon_kind == 'Купе' }.compact %>
-  <%= kupe.size %>
+  <%= @train.kupe[:size] %>
   <div></div>
   <strong>Места:</strong>
   <div></div>
   купе верхние / нижние :
-  <%= kupe.map { |w| w.upper_places }.sum %> /
-  <%= kupe.map { |w| w.lower_places }.sum %>
+  <%= @train.kupe[:upper] %> /
+  <%= @train.kupe[:lower] %>
   <div></div>
   плацкарт верхние / нижние :
-  <%= platzkart.map { |w| w.upper_places }.sum %> /
-  <%= platzkart.map { |w| w.lower_places }.sum %>
+  <%= @train.platzkart[:upper] %> /
+  <%= @train.platzkart[:lower] %>
 
 </p>
 
