@@ -23,5 +23,4 @@ class Train < ApplicationRecord
      lower: wagons_amount('Купе').sum(&:lower_places)
     }
   end
-
 end
