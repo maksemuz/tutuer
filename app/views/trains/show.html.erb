@@ -12,20 +12,20 @@
   <% end %>
   <div></div>
   <strong>Плацкартных вагонов:</strong>
-  <%= @train.platzkart[:size] %>
+  <%= @train.wagons_logic('Плацкарт')[:size] %>
   <div></div>
   <strong>Купейных вагонов:</strong>
-  <%= @train.kupe[:size] %>
+  <%= @train.wagons_logic('Купе')[:size] %>
   <div></div>
   <strong>Места:</strong>
   <div></div>
   купе верхние / нижние :
-  <%= @train.kupe[:upper] %> /
-  <%= @train.kupe[:lower] %>
+  <%= @train.wagons_logic('Купе')[:upper] %> /
+  <%= @train.wagons_logic('Купе')[:lower] %>
   <div></div>
   плацкарт верхние / нижние :
-  <%= @train.platzkart[:upper] %> /
-  <%= @train.platzkart[:lower] %>
+  <%= @train.wagons_logic('Плацкарт')[:upper] %> /
+  <%= @train.wagons_logic('Плацкарт')[:lower] %>
 
 </p>
 
