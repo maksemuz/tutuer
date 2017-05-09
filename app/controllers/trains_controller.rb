@@ -60,6 +60,7 @@ class TrainsController < ApplicationController
     def train_params
       params.require(:train).permit(:number,
                                     :current_station_id,
-                                    :route_id)
+                                    :route_id,
+                                    :sort_flag)
     end
 end

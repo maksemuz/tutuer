@@ -1,28 +1,20 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position]
 
-  # GET /railway_stations
-  # GET /railway_stations.json
   def index
     @railway_stations = RailwayStation.all
   end
 
-  # GET /railway_stations/1
-  # GET /railway_stations/1.json
   def show
   end
 
-  # GET /railway_stations/new
   def new
     @railway_station = RailwayStation.new
   end
 
-  # GET /railway_stations/1/edit
   def edit
   end
 
-  # POST /railway_stations
-  # POST /railway_stations.json
   def create
     @railway_station = RailwayStation.new(railway_station_params)
       if @railway_station.save
@@ -32,8 +24,6 @@ class RailwayStationsController < ApplicationController
       end
   end
 
-  # PATCH/PUT /railway_stations/1
-  # PATCH/PUT /railway_stations/1.json
   def update
       if @railway_station.update(railway_station_params)
         redirect_to @railway_station, notice: 'Railway station was successfully updated.'
@@ -42,8 +32,6 @@ class RailwayStationsController < ApplicationController
       end
   end
 
-  # DELETE /railway_stations/1
-  # DELETE /railway_stations/1.json
   def destroy
     @railway_station.destroy
       redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.'

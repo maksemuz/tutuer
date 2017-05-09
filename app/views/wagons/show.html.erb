@@ -5,15 +5,12 @@
   <%= @wagon.number %>
   <div></div>
   <strong>Тип:</strong>
-  <%= @wagon.wagon_kind %>
+  <%= @wagon.type %>
   <div></div>
-  <strong>Верхних мест:</strong>
-  <%= @wagon.upper_places %>
-  <div></div>
-  <strong>Нижних мест:</strong>
-  <%= @wagon.lower_places %>
-  <div></div>
+  <strong>Места:</strong>
+  <%= render @wagon.type.underscore %>
 </p>
 
 <%= link_to 'Редактировать', edit_wagon_path(@wagon) %> |
 <%= link_to 'Назад', wagons_path %>
+<div></div>

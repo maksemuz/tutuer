@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-      <%= render @wagons %>
+      <%= render partial: 'wagons/wagon', collection: @wagons %>
   </tbody>
 </table>
 
@@ -20,3 +20,5 @@
 <%= link_to 'Новый вагон', new_wagon_path %>
 <div></div>
 <%= link_to 'Главное меню', root_path %>
+
+<div></div>

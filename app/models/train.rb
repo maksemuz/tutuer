@@ -6,12 +6,11 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
-  def wagons_info(kind)
-    w ||= self.wagons.select {|w| w.wagon_kind == kind}
-    {
-      size: w.size,
-      upper: w.sum(&:upper_places),
-      lower: w.sum(&:lower_places)
-    }
+  def places(wagon_type, place_type)
+    self.wagons.where(type:wagon_type).sum(place_type)
+  end
+
+  def sorted
+    sort_flag ? wagons.sorted_fwd : wagons.sorted_back
   end
 end
