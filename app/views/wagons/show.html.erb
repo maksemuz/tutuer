@@ -14,3 +14,10 @@
 <%= link_to 'Редактировать', edit_wagon_path(@wagon) %> |
 <%= link_to 'Назад', wagons_path %>
 <div></div>
+WAGON simple : <%= @wagon.inspect %>
+<div></div>
+WAGON CLASS simple: <%= @wagon.class %>
+<div></div>
+WAGON becomes: <%= @wagon.becomes(Wagon).inspect %>
+<div></div>
+WAGON CLASS becomes: <%= @wagon.becomes(Wagon).class %>

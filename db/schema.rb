@@ -64,13 +64,13 @@ ActiveRecord::Schema.define(version: 20170509095136) do
     t.integer  "number"
     t.integer  "upper_places",      default: 10
     t.integer  "lower_places",      default: 10
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "train_id"
     t.integer  "side_upper_places", default: 10
     t.integer  "side_lower_places", default: 10
     t.integer  "seats",             default: 10
-    t.string   "type",              default: "Coupe"
+    t.string   "type"
     t.index ["train_id"], name: "index_wagons_on_train_id"
   end
 

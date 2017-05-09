@@ -18,7 +18,7 @@ class WagonsController < ApplicationController
   def create
     @wagon = Wagon.new(wagon_params)
     if @wagon.save
-      redirect_to @wagon, notice: 'Вагон создан.'
+      redirect_to wagons_path, notice: 'Вагон создан.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class WagonsController < ApplicationController
 
   def update
     if @wagon.update(wagon_params)
-      redirect_to @wagon, notice: 'Вагон изменен.'
+      redirect_to wagons_path, notice: 'Вагон изменен.'
     else
       render :edit
     end
@@ -53,8 +53,3 @@ class WagonsController < ApplicationController
                                   :train_id)
   end
 end
-
-class CoupesController < WagonsController; end
-class PlatzkartsController < WagonsController; end
-class ComfortsController < WagonsController; end
-class SittingsController < WagonsController; end
