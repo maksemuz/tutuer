@@ -11,6 +11,6 @@ class Train < ApplicationRecord
   end
 
   def sorted
-    sort_flag ? wagons.sorted_fwd : wagons.sorted_back
+    sort_ascendance ? wagons.sorted_fwd : wagons.sorted_back
   end
 end

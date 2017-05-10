@@ -7,13 +7,10 @@ class RailwayStation < ApplicationRecord
   validates :title, presence: true
 
   def update_position(route, position)
-    rs_object = self.railway_stations_routes.find_by route_id: route.id
-    rs_object.station_position = position
-    rs_object.save
+    railway_stations_routes.find_by(route_id: route.id).update(:station_position => position)
   end
 
   def position(route)
-    rs_object = self.railway_stations_routes.find_by route_id: route.id
-    rs_object.station_position
+    railway_stations_routes.find_by(route_id: route.id).station_position
   end
 end

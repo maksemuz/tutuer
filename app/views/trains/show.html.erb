@@ -13,16 +13,16 @@
 <div></div>
 
 <strong>Вагонов плацкарт:</strong>
-<%= @train.wagons.platzkart.size %>
+<%= @train.wagons.wagon_kind('Platzkart').size %>
 <div></div>
 <strong>Вагонов купе:</strong>
-<%= @train.wagons.coupe.size %>
+<%= @train.wagons.wagon_kind('Coupe').size %>
 <div></div>
 <strong>Вагонов комфорт (СВ):</strong>
-<%= @train.wagons.comfort.size %>
+<%= @train.wagons.wagon_kind('Comfort').size %>
 <div></div>
 <strong>Вагонов сидячих:</strong>
-<%= @train.wagons.sitting.size %>
+<%= @train.wagons.wagon_kind('Sitting').size %>
 <div></div>
 
 <strong>Места:</strong>

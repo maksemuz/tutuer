@@ -61,6 +61,6 @@ class TrainsController < ApplicationController
       params.require(:train).permit(:number,
                                     :current_station_id,
                                     :route_id,
-                                    :sort_flag)
+                                    :sort_ascendance)
     end
 end

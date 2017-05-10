@@ -36,10 +36,10 @@
         <td>Cтанций в маршруте нет</td>
       </tr>
   <% else %>
-      <% @route.railway_stations_routes.sorted.each do |station_id| %>
+      <% @route.railway_stations_routes.sorted.each do |station| %>
           <tr>
-            <td> <%= station_id.railway_station.position(@route) %> </td>
-            <td> <%= station_id.railway_station.title %> </td>
+            <td> <%= station.railway_station.position(@route) %> </td>
+            <td> <%= station.railway_station.title %> </td>
           </tr>
       <% end %>
   <% end %>
