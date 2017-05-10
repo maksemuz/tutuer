@@ -3,29 +3,47 @@
 <p>
   <strong>Номер:</strong>
   <%= @train.number %>
-  <div></div>
-  <strong>Маршрут:</strong>
-  <% if @train.route %>
+<div></div>
+<strong>Маршрут:</strong>
+<% if @train.route %>
     <%= @train.route.name %>
-  <% else %>
+<% else %>
     Маршрут не назначен
-  <% end %>
-  <div></div>
-  <strong>Плацкартных вагонов:</strong>
-  <%= @train.wagons_info('Плацкарт')[:size] %>
-  <div></div>
-  <strong>Купейных вагонов:</strong>
-  <%= @train.wagons_info('Купе')[:size] %>
-  <div></div>
-  <strong>Места:</strong>
-  <div></div>
-  купе верхние / нижние :
-  <%= @train.wagons_info('Купе')[:upper] %> /
-  <%= @train.wagons_info('Купе')[:lower] %>
-  <div></div>
-  плацкарт верхние / нижние :
-  <%= @train.wagons_info('Плацкарт')[:upper] %> /
-  <%= @train.wagons_info('Плацкарт')[:lower] %>
+<% end %>
+<div></div>
+
+<strong>Вагонов плацкарт:</strong>
+<%= @train.wagons.wagon_kind('Platzkart').size %>
+<div></div>
+<strong>Вагонов купе:</strong>
+<%= @train.wagons.wagon_kind('Coupe').size %>
+<div></div>
+<strong>Вагонов комфорт (СВ):</strong>
+<%= @train.wagons.wagon_kind('Comfort').size %>
+<div></div>
+<strong>Вагонов сидячих:</strong>
+<%= @train.wagons.wagon_kind('Sitting').size %>
+<div></div>
+
+<strong>Места:</strong>
+<div></div>
+плацкарт верхние / нижние / боковые верхние / боковые нижние:
+<%= @train.places('Platzkart', :upper_places) %> /
+<%= @train.places('Platzkart', :lower_places) %> /
+<%= @train.places('Platzkart', :side_upper_places) %> /
+<%= @train.places('Platzkart', :side_lower_places) %>
+<div></div>
+купе верхние / нижние :
+<%= @train.places('Coupe', :upper_places) %> /
+<%= @train.places('Coupe', :lower_places) %>
+<div></div>
+комфорт мест :
+<%= @train.places('Comfort', :lower_places) %>
+<div></div>
+сидячих мест :
+<%= @train.places('Sitting', :seats) %>
+<div></div>
+<%= render partial: 'trains/wagon', collection: @train.sorted %>
 
 </p>
 

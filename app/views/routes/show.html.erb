@@ -6,34 +6,46 @@
 </p>
 
 <p>
-  <strong>Поезда на маршруте:</strong>
-
+<table>
+  <tbody>
+  <tr>
+    <td>Поезда на маршруте:</td>
+  </tr>
   <% if @route.trains.empty? %>
-      Поездов нет
+      <tr>
+        <td>Поездов нет</td>
+      </tr>
   <% else %>
       <% @route.trains.each do |train| %>
-        <ul>
-          <li><%= train.number %></li>
-        </ul>
+          <tr>
+            <td> <%= train.id %></td>
+            <td><%= train.number %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
 
-    <% end %>
-<% end %>
-</p>
-
-<p>
-  <strong>Станции:</strong>
-
+<table>
+  <tbody>
+  <tr>
+    <td>Станции:</td>
+  </tr>
   <% if @route.railway_stations.empty? %>
-      Cтанций в маршруте нет
+      <tr>
+        <td>Cтанций в маршруте нет</td>
+      </tr>
   <% else %>
-      <% @route.railway_stations.each do |railway_station| %>
-        <ul>
-          <li><%= railway_station.title %></li>
-        </ul>
+      <% @route.railway_stations_routes.sorted.each do |station| %>
+          <tr>
+            <td> <%= station.railway_station.position(@route) %> </td>
+            <td> <%= station.railway_station.title %> </td>
+          </tr>
+      <% end %>
+  <% end %>
 
-    <% end %>
-<% end %>
-</p>
+  </tbody>
+</table>
 
 <%= link_to 'Редактировать', edit_route_path(@route) %> |
 <%= link_to 'Назад', routes_path %>
