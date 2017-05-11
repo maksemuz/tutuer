@@ -9,14 +9,15 @@ class RailwayStation < ApplicationRecord
   def update_position(route, position)
     railway_stations_routes.any? ?
         railway_stations_routes
-            .find_by(route_id: route.id)
-            .update(station_position: position) : 'Станция не принадлежит маршруту'
+            .update(route.id, station_position: position)
+    : 'Станция не принадлежит маршруту'
   end
 
   def position(route)
     railway_stations_routes.any? ?
         railway_stations_routes
-            .select(route_id: route.id)
-            .station_position : 'Станция не принадлежит маршруту'
+            .find_by(route_id: route.id)
+            .station_position
+    : 'Станция не принадлежит маршруту'
   end
 end
