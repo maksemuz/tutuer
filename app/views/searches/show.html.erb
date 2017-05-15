@@ -1,0 +1,18 @@
+<h1>Поиск билета</h1>
+
+<%= form_tag search_path, method: :post do |f| %>
+
+    <div class="field">
+      <%= label :railway_stations, 'Начальная станция' %>
+      <%= collection_select :railway_stations, :start_station_id, RailwayStation.all, :id, :title%>
+    </div>
+
+    <div class="field">
+      <%= label :railway_stations, 'Конечная станция' %>
+      <%= collection_select :railway_stations, :end_station_id, RailwayStation.all, :id, :title%>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Найти поезда" %>
+    </div>
+<% end %>

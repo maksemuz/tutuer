@@ -1,5 +1,7 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station,
+                only: [:show, :edit, :update, :destroy, :update_position, :update_arrive, :update_departure]
+  before_action :set_route, only: [:update_position, :update_time]
 
   def index
     @railway_stations = RailwayStation.all
@@ -37,7 +39,29 @@ class RailwayStationsController < ApplicationController
       redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.'
   end
 
-  private
+  def update_position
+    @route = Route.find(params[:route_id])
+    @railway_station.update_position(@route, params[:position])
+    redirect_to @route
+  end
+
+  def update_arrive
+    @route = Route.find(params[:route_id])
+    @railway_station.update_arrive(@route, params[:arrive])
+    redirect_to @route
+  end
+
+  def update_departure
+    @route = Route.find(params[:route_id])
+    @railway_station.update_departure(@route, params[:departure])
+    redirect_to @route
+  end
+
+  protected
+  def set_route
+    @route = Route.find(params[:route_id])
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_railway_station
     @railway_station = RailwayStation.find(params[:id])
