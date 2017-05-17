@@ -4,12 +4,12 @@
 
     <div class="field">
       <%= label :railway_stations, 'Начальная станция' %>
-      <%= collection_select :railway_stations, :start_station_id, RailwayStation.all, :id, :title%>
+      <%= collection_select :railway_stations, :start_station_id, RailwayStation.all, :id, :title %>
     </div>
 
     <div class="field">
       <%= label :railway_stations, 'Конечная станция' %>
-      <%= collection_select :railway_stations, :end_station_id, RailwayStation.all, :id, :title%>
+      <%= collection_select :railway_stations, :end_station_id, RailwayStation.all, :id, :title %>
     </div>
 
     <div class="actions">
@@ -17,7 +17,6 @@
     </div>
 <% end %>
 
-<p> Search Result </p>
 <table>
   <thead>
   <tr>
