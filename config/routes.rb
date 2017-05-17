@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :routes
   resources :tickets
   resources :users
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:show, :create]
 
   get 'railway_stations/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

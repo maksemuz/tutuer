@@ -6,7 +6,9 @@ class RailwayStation < ApplicationRecord
 
   validates :title, presence: true
 
-  scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.position").distinct }
+  scope :ordered, -> { joins(:railway_stations_routes)
+                           .order("railway_stations_routes.position")
+                           .distinct }
 
   def update_position(route, position)
     station_route = station_route(route)
