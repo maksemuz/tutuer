@@ -1,16 +1,26 @@
 <%= form_for(@ticket) do |f| %>
     <%= render 'common/errors', resource: @ticket %>
 
+    Поезд №: <%= params[:train_id] %>
+    <div></div>
+    <%= params[:source_id] %> - <%= params[:destination_id] %>
+    <p></p>
+
+
     <div class="field">
-      <%= f.label :source %>
-      <%= f.text_field :source %>
+      <%= f.label :passenger_fio, "ФИО пассажира" %>
+      <%= f.text_field :passenger_fio %>
     </div>
     <div class="field">
-      <%= f.label :destination %>
-      <%= f.text_field :destination %>
+      <%= f.label :passport_data, "Паспортные данные" %>
+      <%= f.text_field :passport_data %>
     </div>
 
+    <%= f.hidden_field :train_id, value: params[:train_id] %>
+    <%= f.hidden_field :source_id, value: params[:source_id] %>
+    <%= f.hidden_field :destination_id, value: params[:destination_id] %>
+
     <div class="actions">
-      <%= f.submit "#{@ticket.new_record? ? 'Создать' : 'Изменить'}" %>
+      <%= f.submit "#{@ticket.new_record? ? 'Купить' : 'Изменить'}" %>
     </div>
 <% end %>

@@ -1,7 +1,33 @@
 <h1>Новый вагон</h1>
 
-<%= render 'form', wagon: @wagon %>
+<%= form_for [@train, @wagon] do |f|%>
+    <div class="field">
+      <%= f.label :number %><br>
+      <%= f.text_field :number %>
+    </div>
 
-<%= link_to 'Назад', wagons_path %>
+    <div class="field">
+      <%= f.label :upper_places %><br>
+      <%= f.number_field :upper_places %>
+    </div>
 
-<div></div>
+    <div class="field">
+      <%= f.label :lower_places %><br>
+      <%= f.number_field :lower_places %>
+    </div>
+
+    <div class="field">
+      <%= f.label :side_upper_places %><br>
+      <%= f.number_field :side_upper_places %>
+    </div>
+
+    <div class="field">
+      <%= f.label :side_lower_places %><br>
+      <%= f.number_field :side_lower_places %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Создать' %>
+    </div>
+
+<% end %>

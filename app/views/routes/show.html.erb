@@ -18,34 +18,64 @@
   <% else %>
       <% @route.trains.each do |train| %>
           <tr>
-            <td> <%= train.id %></td>
             <td><%= train.number %></td>
           </tr>
       <% end %>
   <% end %>
   </tbody>
 </table>
+</p>
 
-<table>
-  <tbody>
-  <tr>
-    <td>Станции:</td>
-  </tr>
+<p>
+  <strong>Станции:</strong>
   <% if @route.railway_stations.empty? %>
-      <tr>
-        <td>Cтанций в маршруте нет</td>
-      </tr>
+      Cтанций в маршруте нет
   <% else %>
-      <% @route.railway_stations_routes.sorted.each do |station| %>
+    <table>
+      <thead>
+      <tr>
+        <td width="150px">Название</td>
+        <td>Позиция</td>
+        <td>Прибытие</td>
+        <td>Отправление</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @route.railway_stations.ordered.each do |station| %>
           <tr>
-            <td> <%= station.railway_station.position(@route) %> </td>
-            <td> <%= station.railway_station.title %> </td>
-          </tr>
-      <% end %>
-  <% end %>
+            <td><%= station.title %> </td>
+            <td>
+              <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+                  <%= number_field_tag :position, station.position_in(@route) %>
+                  <%= hidden_field_tag :route_id, @route.id %>
+                  <%= submit_tag 'Изменить' %>
+              <% end %>
+            </td>
 
-  </tbody>
+            <td>
+              <%= form_tag update_arrive_railway_station_path(station), method: :patch do %>
+                  <%= datetime_field_tag :arrive, station.arrive_at(@route).strftime("%H:%M") %>
+                  <%= hidden_field_tag :route_id, @route.id %>
+                  <%= submit_tag 'Изменить' %>
+              <% end %>
+            </td>
+
+            <td>
+              <%= form_tag update_departure_railway_station_path(station), method: :patch do %>
+                  <%= datetime_field_tag :departure, station.departure_at(@route).strftime("%H:%M") %>
+                  <%= hidden_field_tag :route_id, @route.id %>
+                  <%= submit_tag 'Изменить' %>
+              <% end %>
+            </td>
+          </tr>
+
+      <% end %>
+<% end %>
+</tbody>
 </table>
 
-<%= link_to 'Редактировать', edit_route_path(@route) %> |
+</p>
+
+
+<%= link_to 'Редактировать', edit_route_path(@route) %>
 <%= link_to 'Назад', routes_path %>

@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Начальная станция - Конечная станция</strong>
+Поезд №: <%= @ticket.train.number %>
   <div></div>
-  <%= @ticket.source %> - <%= @ticket.destination %>
-</p>
+<%= @ticket.source.title %> - <%= @ticket.destination.title %>
+<div></div>
+ФИО пассажира: <%= @ticket.passenger_fio %>
+<div></div>
+Паспорт: <%= @ticket.passport_data %>
+<p></p>
 
 <%= link_to 'Редактировать', edit_ticket_path(@ticket) %> |
 <%= link_to 'Назад', tickets_path %>
+

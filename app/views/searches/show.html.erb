@@ -1,0 +1,53 @@
+<h1>Поиск билета</h1>
+
+<%= form_tag search_path, method: :post do %>
+
+    <div class="field">
+      <%= label :railway_stations, 'Начальная станция' %>
+      <%= collection_select :railway_stations, :start_station_id, RailwayStation.all, :id, :title %>
+    </div>
+
+    <div class="field">
+      <%= label :railway_stations, 'Конечная станция' %>
+      <%= collection_select :railway_stations, :end_station_id, RailwayStation.all, :id, :title %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Найти поезда" %>
+    </div>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <td>Номер поезда</td>
+    <td>Начальная станция (прибытие - отправление)</td>
+    <td>Конечная станция (прибытие - отправление)</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% if @trains %>
+      <% @trains.each do |train| %>
+          <tr>
+            <td><%= link_to train.number, train %></td>
+            <td><%= @start_station.title %>
+              <%= @start_station.arrive_at(train.route).strftime("%H:%M") %> -
+              <%= @start_station.departure_at(train.route).strftime("%H:%M") %></td>
+            <td><%= @end_station.title %>
+              <%= @end_station.arrive_at(train.route).strftime("%H:%M") %> -
+              <%= @end_station.departure_at(train.route).strftime("%H:%M") %></td>
+            <td><%= form_tag new_ticket_url, method: :get do %>
+                  <%= hidden_field_tag :train_id, train.id %>
+                  <%= hidden_field_tag :source_id, @start_station.id %>
+                  <%= hidden_field_tag :destination_id, @end_station.id %>
+                  <%= submit_tag 'Купить билет' %>
+              <% end %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Назад', search_path %>
+<div></div>
+<%= link_to 'Главное меню', root_path %>

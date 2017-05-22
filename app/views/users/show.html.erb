@@ -5,5 +5,21 @@
   <%= @user.name %>
 </p>
 
+<table>
+  <thead>
+  <tr>
+    <td>Билеты:</td>
+  </tr>
+  <% @user.tickets.each do |ticket| %>
+  <tr>
+    <td><%= ticket.id %></td>
+    <td><%= ticket.source %></td>
+    <td><%= ticket.destination %></td>
+  </tr>
+  <% end %>
+  </thead>
+
+</table>
+
 <%= link_to 'Редактировать', edit_user_path(@user) %> |
 <%= link_to 'Назад', users_path %>
