@@ -1,6 +1,6 @@
 class RailwayStationsController < ApplicationController
   before_action :set_railway_station,
-                only: [:show, :edit, :update, :destroy, :update_position, :update_arrive, :update_departure]
+                except: [:index, :new, :create]
   before_action :set_route, only: [:update_position, :update_time]
 
   def index
