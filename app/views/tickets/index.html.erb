@@ -5,7 +5,11 @@
 <table>
   <tbody>
   <tr>
-    <td>Начальная станция</td><td>Конечная станция</td>
+    <td>Поезд №</td>
+    <td>Станция отправления</td>
+    <td>Станция прибытия</td>
+    <td>ФИО пассажира</td>
+    <td>Паспорт</td>
   </tr>
       <%= render @tickets %>
   </tbody>
@@ -13,6 +17,6 @@
 
 <br>
 
-<%= link_to 'Новый билет', new_ticket_path %>
+<%= link_to 'Новый билет', search_path %>
 <div></div>
 <%= link_to 'Главное меню', root_path %>

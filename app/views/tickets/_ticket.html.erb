@@ -1,5 +1,9 @@
 <tr>
-  <td><%= ticket.source %></td><td><%= ticket.destination %></td>
+  <td><%= ticket.train.number %></td>
+  <td><%= ticket.source.title %></td>
+  <td><%= ticket.destination.title %></td>
+  <td><%= ticket.passenger_fio %></td>
+  <td><%= ticket.passport_data %></td>
   <td><%= link_to 'Показать', ticket %></td>
   <td><%= link_to 'Редактировать', edit_ticket_path(ticket) %></td>
   <td><%= link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' } %></td>

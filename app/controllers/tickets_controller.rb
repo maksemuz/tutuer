@@ -17,6 +17,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.user = User.first
     if @ticket.save
       redirect_to @ticket, notice: 'Билет приобретен.'
     else
@@ -43,6 +44,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:source, :destination)
+    params.require(:ticket).permit(:source_id, :destination_id, :train_id, :passenger_fio, :passport_data)
   end
 end
