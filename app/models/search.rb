@@ -6,5 +6,6 @@ class Search
       Train.joins(:route).where(route: routes)
     end
   end
+
 end
 

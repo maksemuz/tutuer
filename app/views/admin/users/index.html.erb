@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Пользователи</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>email</th>
+      <th>admin</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <%= render @users %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый пользователь', new_admin_user_path %>
+<div></div>
+<%= link_to 'Главное меню', root_path %>

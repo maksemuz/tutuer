@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -17,7 +18,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = User.first
+    @ticket.user = current_user
     if @ticket.save
       redirect_to @ticket, notice: 'Билет приобретен.'
     else
