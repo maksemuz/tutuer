@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Номер:</strong>
+  <%= @train.number %>
+<div></div>
+<strong>Маршрут:</strong>
+<% if @train.route %>
+    <%= @train.route.name %>
+<% else %>
+    Маршрут не назначен
+<% end %>
+<div></div>
+
+<p>
+  <strong>Вагоны</strong>
+<ul>
+  <% @train.wagons.each do |w| %>
+      <li><%=  link_to "Вагон №#{w.number}", w %></li>
+  <% end %>
+
+</ul>
+
+<p>
+<%= link_to 'Добавить вагон', new_admin_train_wagon_path(@train) %>
+</p>
+
+<%= link_to 'Редактировать', edit_admin_train_path(@train) %> |
+<%= link_to 'Назад', admin_trains_path %>

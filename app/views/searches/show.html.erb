@@ -29,14 +29,14 @@
   <% if @trains %>
       <% @trains.each do |train| %>
           <tr>
-            <td><%= link_to train.number, train %></td>
+            <td><%= link_to train.number, [:admin, train] %></td>
             <td><%= @start_station.title %>
               <%= @start_station.arrive_at(train.route).strftime("%H:%M") %> -
               <%= @start_station.departure_at(train.route).strftime("%H:%M") %></td>
             <td><%= @end_station.title %>
               <%= @end_station.arrive_at(train.route).strftime("%H:%M") %> -
               <%= @end_station.departure_at(train.route).strftime("%H:%M") %></td>
-            <td><%= form_tag new_ticket_url, method: :get do %>
+            <td><%= form_tag @set_new_ticket_url, method: :get do %>
                   <%= hidden_field_tag :train_id, train.id %>
                   <%= hidden_field_tag :source_id, @start_station.id %>
                   <%= hidden_field_tag :destination_id, @end_station.id %>
