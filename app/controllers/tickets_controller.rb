@@ -17,8 +17,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.user = current_user
+    @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       redirect_to @ticket, notice: 'Билет приобретен.'
     else
