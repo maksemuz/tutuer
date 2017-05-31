@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'tutuer/index'
-  root 'tutuer#index'
+  root 'searches#show'
   resources :tickets
   resource :search, only: [:show, :create]
 
