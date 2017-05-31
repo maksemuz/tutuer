@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Slim syntax
 gem 'slim'
 gem 'devise'
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

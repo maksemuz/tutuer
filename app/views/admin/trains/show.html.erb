@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Номер:</strong>
+  <strong><%= t('admin.trains.show.number') %>:</strong>
   <%= @train.number %>
 <div></div>
-<strong>Маршрут:</strong>
+<strong><%= t('activerecord.models.route') %>:</strong>
 <% if @train.route %>
     <%= @train.route.name %>
 <% else %>
-    Маршрут не назначен
+    <%= t('admin.trains.show.no_route') %>
 <% end %>
 <div></div>
 
 <p>
-  <strong>Вагоны</strong>
+  <strong><%= t('activerecord.models.wagons') %></strong>
 <ul>
   <% @train.wagons.each do |w| %>
-      <li><%=  link_to "Вагон №#{w.number}", w %></li>
+      <li><%=  link_to "#{t('activerecord.models.wagon')} #{w.number}", admin_wagon_url %></li>
   <% end %>
 
 </ul>
 
 <p>
-<%= link_to 'Добавить вагон', new_admin_train_wagon_path(@train) %>
+<%= link_to t('admin.trains.show.add_wagon'), new_admin_train_wagon_path(@train) %>
 </p>
 
-<%= link_to 'Редактировать', edit_admin_train_path(@train) %> |
-<%= link_to 'Назад', admin_trains_path %>
+<%= link_to t('common.edit'), edit_admin_train_path(@train) %> |
+<%= link_to t('common.back'), admin_trains_path %>

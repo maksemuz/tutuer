@@ -1,4 +1,4 @@
-<%= form_for(train) do |f| %>
+<%= form_for [:admin, @train] do |f| %>
     <%= render 'common/errors', resource: @train %>
 
     <div class="field">
@@ -17,11 +17,11 @@
     </div>
 
     <div class="field">
-      <%= f.label 'Нумерация вагонов с головы поезда' %>
+      <%= f.label t('admin.trains.index.sort_ahead') %>
       <%= f.select :head_sort, [true, false]%>
     </div>
 
     <div class="actions">
-      <%= f.submit "#{@train.new_record? ? 'Создать' : 'Изменить'}" %>
+      <%= f.submit "#{@train.new_record? ? t('common.create') : t('common.change')}" %>
     </div>
 <% end %>

@@ -11,12 +11,15 @@
 <body>
 
 <% if user_signed_in? %>
-    Привет, <%= current_user.user_firstname %>
-    <%= current_user.user_family %> !
-    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+    Привет, <%= current_user.user_firstname %> <%= current_user.user_family %>!
+    <%= link_to t('common.logout'), destroy_user_session_path, method: :delete %>
 <% else %>
-    <%= link_to 'Войти', new_user_session_path %>
+    <%= link_to t('common.login'), new_user_session_path %>
 <% end %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 <p></p>
 <%= render 'layouts/footer' %>

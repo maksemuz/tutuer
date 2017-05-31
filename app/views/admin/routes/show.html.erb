@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Название:</strong>
+  <strong><%= t('admin.routes.show.name') %>:</strong>
   <%= @route.name %>
 </p>
 
@@ -9,11 +7,11 @@
 <table>
   <tbody>
   <tr>
-    <td>Поезда на маршруте:</td>
+    <td><%= t('admin.routes.show.route_trains') %></td>
   </tr>
   <% if @route.trains.empty? %>
       <tr>
-        <td>Поездов нет</td>
+        <td><%= t('admin.routes.show.no_trains') %></td>
       </tr>
   <% else %>
       <% @route.trains.each do |train| %>
@@ -27,17 +25,17 @@
 </p>
 
 <p>
-  <strong>Станции:</strong>
+  <strong><%= t('admin.railway_stations.index.railway_stations') %>:</strong>
   <% if @route.railway_stations.empty? %>
-      Cтанций в маршруте нет
+      <%= t('admin.routes.show.no_stations') %>
   <% else %>
     <table>
       <thead>
       <tr>
-        <td width="150px">Название</td>
-        <td>Позиция</td>
-        <td>Прибытие</td>
-        <td>Отправление</td>
+        <td width="150px"><%= t('admin.railway_stations.show.title') %></td>
+        <td><%= t('admin.routes.show.position') %></td>
+        <td><%= t('admin.routes.show.arrival') %></td>
+        <td><%= t('admin.routes.show.departure') %></td>
       </tr>
       </thead>
       <tbody>
@@ -45,26 +43,26 @@
           <tr>
             <td><%= station.title %> </td>
             <td>
-              <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+              <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
                   <%= number_field_tag :position, station.position_in(@route) %>
                   <%= hidden_field_tag :route_id, @route.id %>
-                  <%= submit_tag 'Изменить' %>
+                  <%= submit_tag t('common.change') %>
               <% end %>
             </td>
 
             <td>
-              <%= form_tag update_arrive_railway_station_path(station), method: :patch do %>
+              <%= form_tag update_arrive_admin_railway_station_path(station), method: :patch do %>
                   <%= datetime_field_tag :arrive, station.arrive_at(@route).strftime("%H:%M") %>
                   <%= hidden_field_tag :route_id, @route.id %>
-                  <%= submit_tag 'Изменить' %>
+                  <%= submit_tag t('common.change') %>
               <% end %>
             </td>
 
             <td>
-              <%= form_tag update_departure_railway_station_path(station), method: :patch do %>
+              <%= form_tag update_departure_admin_railway_station_path(station), method: :patch do %>
                   <%= datetime_field_tag :departure, station.departure_at(@route).strftime("%H:%M") %>
                   <%= hidden_field_tag :route_id, @route.id %>
-                  <%= submit_tag 'Изменить' %>
+                  <%= submit_tag t('common.change') %>
               <% end %>
             </td>
           </tr>
@@ -77,5 +75,6 @@
 </p>
 
 
-<%= link_to 'Редактировать', edit_route_path(@route) %>
-<%= link_to 'Назад', routes_path %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route) %>
+<div></div>
+<%= link_to t('common.back'), admin_routes_path %>

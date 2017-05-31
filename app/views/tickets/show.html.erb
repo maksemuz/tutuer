@@ -9,6 +9,6 @@
 Паспорт: <%= @ticket.passport_data %>
 <p></p>
 
-<%= link_to 'Редактировать', edit_ticket_path(@ticket) %> |
-<%= link_to 'Назад', tickets_path %>
+<%= link_to :edit, edit_ticket_path(@ticket) %> |
+<%= link_to :back, tickets_path %>
 
