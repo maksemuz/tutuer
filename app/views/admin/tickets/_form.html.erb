@@ -2,7 +2,7 @@
     <%= render 'common/errors', resource: @ticket %>
 
     <div class="field">
-      <%= f.label :user_id, 'Пользователь' %>
+      <%= f.label :user_id %>
       <%= f.collection_select :user_id, User.all, :id, :email %>
     </div>
 
@@ -13,11 +13,11 @@
 
 
     <div class="field">
-      <%= f.label :passenger_fio, "ФИО пассажира" %>
+      <%= f.label :passenger_fio %>
       <%= f.text_field :passenger_fio %>
     </div>
     <div class="field">
-      <%= f.label :passport_data, "Паспортные данные" %>
+      <%= f.label :passport_data %>
       <%= f.text_field :passport_data %>
     </div>
 
@@ -26,6 +26,6 @@
     <%= f.hidden_field :destination_id, value: params[:destination_id] %>
 
     <div class="actions">
-      <%= f.submit "#{@ticket.new_record? ? 'Купить' : 'Изменить'}" %>
+      <%= f.submit "#{@ticket.new_record? ? :buy : :edit}" %>
     </div>
 <% end %>

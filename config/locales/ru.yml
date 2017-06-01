@@ -1,0 +1,54 @@
+ru:
+  common:
+    create: 'Создать'
+    update: 'Обновить'
+    back: 'Назад'
+    edit: 'Редактировать'
+    show: 'Показать'
+    delete: 'Удалить'
+    login:  'Войти'
+    logout: 'Выйти'
+    errors: 'При заполнении формы возникли ошибки'
+    confirm:  'Подтвердите'
+    change: 'Изменить'
+  admin:
+    panels:
+      index: 'Панель админа'
+      stations: 'Станции'
+      trains: 'Поезда'
+      routes: 'Маршруты'
+      users: 'Пользователи'
+      tickets: 'Билеты'
+    railway_stations:
+      index:
+        railway_stations: 'Станции'
+        title:  'Название'
+      new:
+        title: 'Новая станция'
+      show:
+        title:  'Название'
+    routes:
+      index:
+        routes: 'Маршруты'
+        name:  'Название'
+      new:
+        name: 'Новый маршрут'
+      show:
+        name:  'Название'
+        route_trains: 'Поезда на маршруте'
+        no_trains:  'Поездов нет'
+        no_stations:  'Cтанций в маршруте нет'
+        position: 'Позиция'
+        arrival:  'Прибытие'
+        departure:  'Отправление'
+    trains:
+      index:
+        trains: 'Станции'
+        number:  'Номер'
+        sort_ahead: 'Нумерация вагонов с головы поезда'
+      new:
+        number: 'Новый поезд'
+      show:
+        number:  'Номер'
+        no_route: 'Маршрут не назначен'
+        add_wagon:  'Добавить вагон'

@@ -20,7 +20,7 @@ class Admin::WagonsController < Admin::BaseController
   def create
     @wagon = @train.wagons.new(wagon_params)
     if @wagon.save
-      redirect_to @train, notice: 'Вагон создан.'
+      redirect_to admin_trains_path, notice: 'Вагон создан.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::WagonsController < Admin::BaseController
 
   def update
     if @wagon.update(wagon_params)
-      redirect_to wagons_path, notice: 'Вагон изменен.'
+      redirect_to admin_wagons_path, notice: 'Вагон изменен.'
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Admin::WagonsController < Admin::BaseController
 
   def destroy
     @wagon.destroy
-    redirect_to wagons_url, notice: 'Вагон удален.'
+    redirect_to admin_wagons_path, notice: 'Вагон удален.'
   end
 
   protected
