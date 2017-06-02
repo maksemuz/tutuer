@@ -87,11 +87,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "thawing-journey-48790.herokuapp.com"}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address:              'mail.stakan.pro',
+      address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'stakan.pro',
-      user_name:            'mmc',
-      password:             'gbkjhfvf',
+      domain:               'thawing-journey-48790.herokuapp.com',
+      user_name:            'masterstakanov',
+      password:             '1q@W3e$R5t',
       authentication:       'plain',
       enable_starttls_auto: true  }
 end
