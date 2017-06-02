@@ -1,0 +1,4 @@
+<p>Добрый день, <%= @user.user_firstname %> <%= @user.user_family %>.</p>
+<p>Вы купили билет по маршруту "<%= @ticket.route_name %>"</p>
+<p>Посмотреть билет Вы можете <%= link_to 'здесь', @ticket %></p>
+<p>Посмотреть все свои билеты Вы можете <%= link_to 'здесь', tickets_url %></p>

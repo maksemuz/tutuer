@@ -10,3 +10,4 @@ class Route < ActiveRecord::Base
         .where(railway_stations: { id: station_kind })
   }
 end
+
