@@ -41,6 +41,7 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'rails_12factor'
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
 
 group :development, :test do
