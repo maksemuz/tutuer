@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170602081312) do
     t.integer  "route_id"
     t.integer  "station_position"
     t.integer  "position"
-    t.datetime "arrive",             default: '2017-06-02 12:57:45'
-    t.datetime "departure",          default: '2017-06-02 12:57:45'
+    t.datetime "arrive",             default: '2016-12-31 21:00:00'
+    t.datetime "departure",          default: '2016-12-31 21:00:00'
     t.index ["railway_station_id"], name: "index_railway_stations_routes_on_railway_station_id", using: :btree
     t.index ["route_id"], name: "index_railway_stations_routes_on_route_id", using: :btree
   end
