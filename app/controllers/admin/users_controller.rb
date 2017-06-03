@@ -34,7 +34,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     @user.destroy
-    redirect_to users_url, notice: 'Пользователь удален.'
+    redirect_to admin_users_path, notice: 'Пользователь удален.'
   end
 
   private
