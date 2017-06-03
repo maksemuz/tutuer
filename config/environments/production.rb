@@ -90,8 +90,8 @@ Rails.application.configure do
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'thawing-journey-48790.herokuapp.com',
-      user_name:            'masterstakanov',
-      password:             '1q@W3e$R5t',
+      user_name:             ENV['GMAIL_SMTP_USER'],
+      password:              ENV['GMAIL_SMTP_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true  }
 end
