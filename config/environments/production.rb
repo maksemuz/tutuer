@@ -91,7 +91,7 @@ Rails.application.configure do
       port:                 587,
       domain:               'thawing-journey-48790.herokuapp.com',
       user_name:            'masterstakanov',
-      password:             'CENSORED',
+      password:             '1q@W3e$R5t',
       authentication:       'plain',
       enable_starttls_auto: true  }
 end
