@@ -14,7 +14,7 @@
   <strong><%= t('activerecord.models.wagons') %></strong>
 <ul>
   <% @train.wagons.each do |w| %>
-      <li><%=  link_to "#{t('activerecord.models.wagon')} #{w.number}", admin_wagon_url %></li>
+      <li><%=  link_to "#{t('activerecord.models.wagon')} #{w.number}, #{w.type}", admin_wagon_url %></li>
   <% end %>
 
 </ul>

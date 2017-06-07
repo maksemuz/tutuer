@@ -43,7 +43,7 @@ ru:
         departure:  'Отправление'
     trains:
       index:
-        trains: 'Станции'
+        trains: 'Поезда'
         number:  'Номер'
         sort_ahead: 'Нумерация вагонов с головы поезда'
       new:
