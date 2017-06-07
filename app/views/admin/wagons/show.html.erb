@@ -1,18 +1,16 @@
+<p id="notice"><%= notice %></p>
 
-<strong>Вагон №: <%= @wagon.number %></strong>
+<p>
+  <strong>Номер:</strong>
+  <%= @wagon.number %>
 <div></div>
-<strong>Поезд: <%= @wagon.train.number %></strong>
+<strong>Тип:</strong>
+<%= @wagon.type %>
 <div></div>
 <strong>Места:</strong>
-<div></div>
-Верхние: <%= @wagon.upper_places %>
-<div></div>
-Нижние: <%= @wagon.lower_places %>
-<div></div>
-Верхние боковые: <%= @wagon.side_upper_places %>
-<div></div>
-Нижние боковые: <%= @wagon.side_lower_places %>
-<div></div>
+<%= render @wagon.type.underscore %>
+</p>
 
-<%= link_to 'Назад', [:admin, @wagon.train] %>
-
+<%= link_to 'Редактировать', edit_admin_wagon_path(@wagon) %> |
+<%= link_to 'Назад', admin_train_path %>
+<div></div>

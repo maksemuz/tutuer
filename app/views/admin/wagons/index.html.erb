@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Вагоны</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Имя</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render partial: 'admin/wagons/wagon', collection: @wagons %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый вагон', new_admin_train_wagon_path %>
+<div></div>
+<%= link_to 'Главное меню', root_path %>
+
+<div></div>

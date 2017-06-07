@@ -1,0 +1,62 @@
+<%= form_for [:admin, @train,   wagon.becomes(Wagon)] do |f| %>
+    <%= render 'common/errors', resource: wagon %>
+
+    <div class="field">
+      <%= f.label :wagon_type %>
+      <%= f.select :type, [' ', 'Coupe', 'Platzkart', 'Comfort', 'Sitting'] %>
+    </div>
+
+    <div class="comfort" style="display: <% hidden ? 'none' : 'block'%>">
+      <div class="field">
+        <%= f.label :lower_places %>
+        <%= f.number_field :lower_places %>
+      </div>
+    </div>
+
+    <div class="coupe" style="display: <% hidden ? 'none' : 'block'%>">
+      <div class="field">
+        <%= f.label :upper_places %>
+        <%= f.number_field :upper_places %>
+      </div>
+
+      <div class="field">
+        <%= f.label :lower_places %>
+        <%= f.number_field :lower_places %>
+      </div>
+    </div>
+
+    <div class="platzkart" style="display: <% hidden ? 'none' : 'block'%>">
+      <div class="field">
+        <%= f.label :upper_places %>
+        <%= f.number_field :upper_places %>
+      </div>
+
+      <div class="field">
+        <%= f.label :lower_places %>
+        <%= f.number_field :lower_places %>
+      </div>
+
+      <div class="field">
+        <%= f.label :side_upper_places %>
+        <%= f.number_field :side_upper_places %>
+      </div>
+
+      <div class="field">
+        <%= f.label :side_lower_places %>
+        <%= f.number_field :side_lower_places %>
+      </div>
+    </div>
+
+    <div class="sitting" style="display: <% hidden ? 'none' : 'block'%>">
+      <div class="field">
+        <%= f.label :seats %>
+        <%= f.number_field :seats %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :train_id, value: @train.id %>
+
+    <div class="actions">
+      <%= f.submit "#{wagon.new_record? ? 'Создать' : 'Изменить'}" %>
+    </div>
+<% end %>
